@@ -131,40 +131,7 @@ def level1(botId):
         print(pos[0])
 
 def level2(botId):
-    global grid
-    moveType = 5
-    botsPose = get_botPose_list()
-    obstaclePose = get_obstacles_list()
-    greenZone = get_greenZone_list()
-    redZone = get_redZone_list()
-    originalGreenZone = get_original_greenZone_list()
-    for i in range(200):
-        grid.append([])
-        for j in range(200):
-            grid[i].append(Node(1,(i,j)))
-    for pt in obstaclePose:
-        for i in range(pt[0][0],pt[2][0]+1):
-            for j in range(pt[0][1],pt[2][1]+1):
-                grid[i][j]=Node(0,(i,j))
-    start=grid[botsPose[0][0]][botsPose[0][1]]
-    goal=grid[greenZone[0][0][0]][greenZone[0][0][1]]
-    path=aStar(start, goal)
-    print(len(path))
-    print("final pos:",greenZone[0][0])
-    pos=get_botPose_list()
-    print("initial pos:",pos[0])
-    sleep(5)
-    for i in range(1,len(path)):
-        successful_move, mission_complete = send_command(botId,path[i].move)
-        pos=get_botPose_list()
-        if successful_move:
-            print("YES")
-        else:
-            print("NO")
-        if mission_complete:
-            print("MISSION COMPLETE")
-        pos=get_botPose_list()
-        print(pos[0])
+    pass
 
 def level3(botId):
     pass
