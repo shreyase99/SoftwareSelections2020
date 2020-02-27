@@ -88,6 +88,12 @@ def aStar(start, goal):
     #Throw an exception if there is no path
     raise ValueError('No Path Found')
 
+'''
+PS: You need not write codes for all levels. You must
+at least complete the function corresponding to the level
+you're attempting at the moment.
+'''
+    
 def level1(botId):
     global grid
     moveType = 5
