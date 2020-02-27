@@ -1,4 +1,4 @@
-import requests, time, pickle, sys
+import requests, time, pickle, sys, os
 from io import BytesIO
 from PIL import Image
 import numpy as np
@@ -20,12 +20,13 @@ original_greenZone_url = BASE_URL+'originalGreenZone'
 redZone_url = BASE_URL+'redZone'
 level_url = BASE_URL+'level'
 numbots_url = BASE_URL+'numbots'
+mission_url = BASE_URL+'missionComplete'
 map_url = BASE_URL+'map'
 
 def authenticate():
-    try:
+    if os.path.isfile('credentials.p'):
         f = open('credentials.p', 'rb')
-    except IOError:
+    else:
         if sys.version_info[0] == 2:
             roll = raw_input("Enter your roll: ")
         else:
@@ -43,10 +44,9 @@ def authenticate():
             print("Please contact someone in the team!")
             exit(0)
         f = open('credentials.p', 'rb')
-    finally:
-        credentials = pickle.load(f)
-        f.close()
-        return credentials
+    credentials = pickle.load(f)
+    f.close()
+    return credentials
 
 def restart_mission(level):
     '''
@@ -113,6 +113,20 @@ def get_numbots():
     r = requests.get(numbots_url, params=args)
     time.sleep(0.05)
     return r.json()['numbots']
+
+def is_mission_complete():
+    '''
+    Inputs:
+
+    Returns:
+        mission_complete   bool     True, if mission is complete, else False
+    Work:
+    Checks if the mission is complete, and if yes, then returns True else False
+    '''
+    args = authenticate()
+    r = requests.get(mission_url, params=args)
+    time.sleep(0.05)
+    return r.json()['mission_complete']
 
 def get_score():
     '''

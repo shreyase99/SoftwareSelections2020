@@ -17,7 +17,7 @@
 
 We have already added you to a Google Group. You should receive further notifications on that group itself.
 
-The contest is live till 4th March, 2020. You need to submit only `code.py` file over email to the following email address: spandankumarsahu@gmail.com, with the subject as `[Software Selections 2020]<RollNumber>`
+The contest is live till 29th February, 2020. You need to submit only `code.py` file over email to the following email address: spandankumarsahu@gmail.com, with the subject as `[Software Selections 2020]<RollNumber>`
 
 There will be meetings held for doubts and help, on a per need basis, the exact date and time will be notified through email. Having said that, please feel free to mail at: spandankumarsahu@gmail.com, if you've any questions regarding either the Problem statement or help regarding the codes.
 
@@ -32,13 +32,18 @@ FIRST RUN:
 
 In one terminal, enter the following:
 
-  `python controller.py`
+  `python3 controller.py`
 
 The program would prompt you to enter a level. Start with 1 and work your way upto level 6.
+PS: If you face any problems at this stage, it is most likely because of proxy settings. Please run the following command then:
+
+  `export no_proxy=localhost,127.0.0.0/8,::1,10.0.0.0/8,127.0.0.1/8`
+
+If it still doesn't work, please let us know, or visit the lab to find help.
 
 Once your code is running, you can view how the bots move, by running the following in another terminal:
 
-  `python simulation.py`
+  `python3 simulation.py`
 
 Your task is to complete up as many functions/levels as possible in `code.py` and submit your codes to spandankumarsahu@gmail.com. You need not attempt all the levels, but sure, the more the better your chances are to get into the team. Your functions may not be optimal (in some cases, optimality cannot even be guaranteed!). We would solely judge on how you approach the problem and how much effort you've put in! :)
 
@@ -59,7 +64,7 @@ To attempt a different level, just close the terminal processes (like using Ctrl
 You can also use the APIs to view different metrics. Just `from api import *` in your Python code and call relevant APIs. Feel free to ask for a demo (email: spandankumarsahu@gmail.com), in case you need help!
 
 ## Problem Description
-The problem is based on the world of zooids, where you are their master. The world of zooid is a grid of dimension 200 x 200. As in any real world, there are obstacles occupying some portions of the grid. The obstacles are strictly rectangular in shape.
+The problem is based on the world of zooids, where you are their master. The world of zooid is a grid of dimension 200 x 200. As in any real world, there are obstacles occupying some portions of the grid. The obstacles are strictly rectangular in shape. Here is a sample image ![sample image](images/curr_map.png)
 
 Each zooid is capable of some basic locomotion. If the zooid is at a location X in a grid, then a movement of type 1, would take it to the grid marked as 1, a movement of type 2 would take it to the grid marked 2 and so on.
 
